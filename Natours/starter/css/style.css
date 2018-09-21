@@ -6,3 +6,24 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*this changes the box model so the borders and padding are no longer added to the elements on here*/
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7; /*1.7 bigger than normal set lineheight*/
+  color: #777;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.75), rgba(40, 180, 131, 0.75)), url(../img/hero.jpg); /*this is putting one image on top of the other*/
+  background-size: cover; /*whatever the width of the viewport it will always try to fit the element inside the box */
+  background-position: top; /*this makes sure whatever the viewport size, the top of the image always stays at the top of the container. */
+}
