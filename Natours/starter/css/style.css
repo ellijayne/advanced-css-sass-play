@@ -45,6 +45,11 @@ body {
     height: 35px;
 }
 
+/* .logo:hover {
+this is eg of how to call animation on hover. mine doesn't really work
+  animation: moveInRight 1s ease-out;
+} */
+
 .text-box {
     /*this depends on parent element being set to relative */
     position: absolute;
