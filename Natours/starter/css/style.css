@@ -92,6 +92,10 @@ body {
       transform: translateX(-100px); /*negative value means it moves TO the left */
     }
 
+    /* 60% { this is just an eg of rotate
+      transform: rotate(180deg);
+    } */
+
     80% {
       transform: translateX(10px); /*specifying positive means it will go to the right */
     }
