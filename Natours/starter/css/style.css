@@ -51,7 +51,7 @@ body {
     /* think the below depends on the element being absolute, which then depends on parent being relative? */
     top: 50%; /*also this means the element will start at 50% of the parent so need to play around with it so the centre is at 50% and not the edge */
     left: 50%;
-     transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%); /*this is saying these 50% are in relation to the element itself and not the parent element anymore. */
 }
 
 .heading-primary {
