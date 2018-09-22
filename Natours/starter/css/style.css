@@ -42,7 +42,16 @@ body {
 }
 
 .logo {
-  height: 35px;
+    height: 35px;
+}
+
+.text-box {
+    /*this depends on parent element being set to relative */
+    position: absolute;
+    /* think the below depends on the element being absolute, which then depends on parent being relative? */
+    top: 50%; /*also this means the element will start at 50% of the parent so need to play around with it so the centre is at 50% and not the edge */
+    left: 50%;
+     transform: translate(-50%, -50%);
 }
 
 .heading-primary {
@@ -63,6 +72,6 @@ body {
 .heading-primary-sub {
   display: block;
   font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 15px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
