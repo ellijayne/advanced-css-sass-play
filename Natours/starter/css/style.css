@@ -51,27 +51,68 @@ body {
     /* think the below depends on the element being absolute, which then depends on parent being relative? */
     top: 40%; /*also this means the element will start at 50% of the parent so need to play around with it so the centre is at 50% and not the edge */
     left: 50%;
-     transform: translate(-50%, -50%); /*this is saying these 50% are in relation to the element itself and not the parent element anymore. */
+    transform: translate(-50%, -50%); /*this is saying these 50% are in relation to the element itself and not the parent element anymore. */
 }
 
 .heading-primary {
-  color: #fff;
-  text-transform: uppercase;
+    color: #fff;
+    text-transform: uppercase;
 
 }
 
 .heading-primary-main {
-  /* span is inline by default so we will change it to block */
-  display: block;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 35px;
+    /* span is inline by default so we will change it to block */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 
+
+    /* animation-iteration-count: 3; this rules means the animation will repeat three times */
+    /* animation-delay: 3s; obviously this delaying animation and it starts after 3 seconds */
 }
 
 .heading-primary-sub {
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 17.4px;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+}
+
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px); /*negative value means it moves TO the left */
+    }
+
+    80% {
+      transform: translateX(10px); /*specifying positive means it will go to the right */
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); /*this means it will look like it does now in the centre*/
+    }
+}
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px); /*negative value means it moves TO the left */
+    }
+
+    80% {
+      transform: translateX(-10px); /*specifying positive means it will go to the right */
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); /*this means it will look like it does now in the centre*/
+    }
 }
