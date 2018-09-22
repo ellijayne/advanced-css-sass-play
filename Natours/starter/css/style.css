@@ -80,9 +80,8 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+    /* below is calling animation as above but is all in one line */
+    animation: moveInRight 1s ease-out;
 
 }
 
