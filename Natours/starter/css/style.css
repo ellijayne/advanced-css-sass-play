@@ -124,3 +124,16 @@ this is eg of how to call animation on hover. mine doesn't really work
       transform: translate(0); /*this means it will look like it does now in the centre*/
     }
 }
+
+/* below is link pseudo class - its a state of the button selector and visited is for when a user clicks it and and colors for after it has visited. here we want them to be the same so we call them together */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
