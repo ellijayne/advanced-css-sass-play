@@ -101,6 +101,19 @@ this is eg of how to call animation on hover. mine doesn't really work
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s; /*this is saying use the two transforms below on the active and hover states should slowly transition into place, it takes them .2s to get there. this needs to be written on the initial state but applies to the hover and active below? */
+}
+
+.btn:hover {
+  transform: translateY(-3px); /*negative value makes it move up y axis*/
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  /* first 0 is for x axis, second is y and then 3rd id blur */
+}
+
+.btn:active {
+  transform: translateY(-1px); /*this is not 1px in relation to hover state, it is always in relation to the regular state. */
 }
 
 .btn-white {
