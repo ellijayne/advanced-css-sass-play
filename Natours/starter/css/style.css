@@ -57,11 +57,15 @@ this is eg of how to call animation on hover. mine doesn't really work
     top: 40%; /*also this means the element will start at 50% of the parent so need to play around with it so the centre is at 50% and not the edge */
     left: 50%;
     transform: translate(-50%, -50%); /*this is saying these 50% are in relation to the element itself and not the parent element anymore. */
+    text-align: center;
+
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    /* backface-visibility: hidden; */
+    margin-bottom: 60px;
 
 }
 
@@ -89,6 +93,22 @@ this is eg of how to call animation on hover. mine doesn't really work
     animation: moveInRight 1s ease-out;
 
 }
+
+
+/* below is link pseudo class - its a state of the button selector and visited is for when a user clicks it and and colors for after it has visited. here we want them to be the same so we call them together */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* ANIMATIONS */
 
 @keyframes moveInLeft {
     0% {
@@ -123,17 +143,4 @@ this is eg of how to call animation on hover. mine doesn't really work
       opacity: 1;
       transform: translate(0); /*this means it will look like it does now in the centre*/
     }
-}
-
-/* below is link pseudo class - its a state of the button selector and visited is for when a user clicks it and and colors for after it has visited. here we want them to be the same so we call them together */
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-}
-
-.btn-white {
-  background-color: #fff;
-  color: #777;
 }
