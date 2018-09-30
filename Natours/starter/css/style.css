@@ -105,6 +105,7 @@ this is eg of how to call animation on hover. mine doesn't really work
     border-radius: 100px;
     transition: all .2s; /*this is saying use the two transforms below on the active and hover states should slowly transition into place, it takes them .2s to get there. this needs to be written on the initial state but applies to the hover and active below? */
     position: relative;
+
 }
 
 /*hover and active are pseudo classes, :: after is a pseudo element */
@@ -146,8 +147,14 @@ this is eg of how to call animation on hover. mine doesn't really work
 /* below looks confusing but this is a psuedo element only when we have the button in the hover state */
 
 .btn:hover::after {
-  transform: scale(1.5); /*scale(2)this inscreases the element and it will appear twice the size it was before.*/
+  transform: scaleX(1.4) scaleY(1.6); /*scale(2)this inscreases the element and it will appear twice the size it was before. scale() without an x or y scales entire element but you can use scaleX or scaleY to target either top and bottom or sides*/
+
   opacity: 0; /*this relates to the transition: all 0.4s above too, we are wanting this element to transition out to 0 opacity but you need to put the transition on the parent element remember */
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s; /*the end 0.75s relates to the delay*/
+  animation-fill-mode: backwards; /* this automatically applies the style of the 0% before the animation starts. so the 0% that says opacity 0 on this animation will apply */
 }
 
 /* ANIMATIONS */
@@ -180,6 +187,20 @@ this is eg of how to call animation on hover. mine doesn't really work
     80% {
       transform: translateX(-10px); /*specifying positive means it will go to the right */
     }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); /*this means it will look like it does now in the centre*/
+    }
+
+
+}
+@keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(30px); /*positive value means it moves TO the bottom */
+    }
+
 
     100% {
       opacity: 1;
