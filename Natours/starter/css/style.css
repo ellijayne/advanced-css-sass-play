@@ -104,7 +104,10 @@ this is eg of how to call animation on hover. mine doesn't really work
     display: inline-block;
     border-radius: 100px;
     transition: all .2s; /*this is saying use the two transforms below on the active and hover states should slowly transition into place, it takes them .2s to get there. this needs to be written on the initial state but applies to the hover and active below? */
+    position: relative;
 }
+
+/*hover and active are pseudo classes, :: after is a pseudo element */
 
 .btn:hover {
   transform: translateY(-3px); /*negative value makes it move up y axis*/
@@ -114,11 +117,28 @@ this is eg of how to call animation on hover. mine doesn't really work
 
 .btn:active {
   transform: translateY(-1px); /*this is not 1px in relation to hover state, it is always in relation to the regular state. */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+.btn::after {
+  /*  */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute; /*this will be absolute in relation to the last relative positioned item, in our case it is the header, but we dont wwant that so we need to add a position of relative to the btn:visted part. */
+  top: 0;
+  left: 0;
+}
+
+.btn-white::after {
+  background-color: #fff;
 }
 
 /* ANIMATIONS */
