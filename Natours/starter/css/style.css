@@ -135,10 +135,19 @@ this is eg of how to call animation on hover. mine doesn't really work
   position: absolute; /*this will be absolute in relation to the last relative positioned item, in our case it is the header, but we dont wwant that so we need to add a position of relative to the btn:visted part. */
   top: 0;
   left: 0;
+  z-index: -1;
+  transition: all 0.4s;
 }
 
 .btn-white::after {
   background-color: #fff;
+}
+
+/* below looks confusing but this is a psuedo element only when we have the button in the hover state */
+
+.btn:hover::after {
+  transform: scale(1.5); /*scale(2)this inscreases the element and it will appear twice the size it was before.*/
+  opacity: 0; /*this relates to the transition: all 0.4s above too, we are wanting this element to transition out to 0 opacity but you need to put the transition on the parent element remember */
 }
 
 /* ANIMATIONS */
