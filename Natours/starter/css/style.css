@@ -13,6 +13,10 @@ Dark green: #28b485
     box-sizing: border-box; /*this changes the box model so the borders and padding are no longer added to the elements on here*/
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
