@@ -12,27 +12,30 @@
 
         <title>Natours | Exciting tours for adventurous people</title>
     </head>
+
+
+
     <body>
+      <!-- for BEM the blocks go at the begining of any element or modifier belonging to that block. The block is seperated from the element with a __ and blocks are seperated from modifiers with double dashes - -  -->
+
         <header class="header">
 
-            <div class='logo-box'>
-              <img src="img/logo-white.png" alt="Logo" class="logo" />
+            <div class="header__logo-box"> <!-- header is the block in the BEM notiation and the logo box is the element -->
+              <img src="img/logo-white.png" alt="Logo" class="header__logo" />
             </div>
 
-            <div class="text-box">
-              <h1 class="heading-primary">
-                  <span class="heading-primary-main">
+            <div class="header__text-box">
+              <h1 class="heading-primary"> <!--this is a stand alone block cos we might want to use it somewhere else -->
+                  <span class="heading-primary--main"> <!--this is a modifier in the BEM notation-->
                     Outdoors
                   </span>
-                  <span class="heading-primary-sub">
+                  <span class="heading-primary--sub"> <!--this is also a modifier in the BEM notation-->
                     is where life happens
                   </span>
               </h1>
 
-              <a href="#" class="btn btn-white btn-animated">Discover Our Tours</a>
+              <a href="#" class="btn btn--white btn--animated">Discover Our Tours</a> <!--here the btn is the block and white and animated are modifiers-->
             </div>
-
-
 
         </header>
 
