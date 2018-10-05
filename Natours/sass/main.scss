@@ -1,0 +1,219 @@
+
+//COLORS:
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+
+//updated it to include the before and after psuedo elements because now the below code applies to the elements that have after and before on them below.
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+   //this changes the box model so the borders and padding are no longer added to the elements on here
+   box-sizing: inherit; //this is telling the program to inherit the box size from the body! only way to use inherit is to let it inherit from where it was set elsewhere. inherit has no meaning on its own if there is no other box size defined.
+}
+
+//cos we dont want to use px at all on font-sizes changing the below from 10px to a percentage so divide 10 by 16 cos 16 is root px size.
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7; //1.7 bigger than normal set lineheight
+    color: $color-grey-dark;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 95vh;
+    //see below - in sass you can use a var as an rgba and specify the opacity!!!!
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.75),
+      rgba($color-primary-dark, 0.75)),
+      url(../img/hero.jpg); //this is putting one image on top of the other
+    background-size: cover; //whatever the width of the viewport it will always try to fit the element inside the box
+    background-position: top; //this makes sure whatever the viewport size, the top of the image always stays at the top of the container.
+    position: relative; //in logo-box below we set it to absolute and it's position depends on this parent element being positioned relative
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+    position: absolute; //this depends on parent element being set to relative
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+// .logo:hover {
+// this is eg of how to call animation on hover. mine doesn't really work
+//   animation: moveInRight 1s ease-out;
+// }
+
+.header__text-box {
+    //this depends on parent element being set to relative
+    position: absolute;
+    //think the below depends on the element being absolute, which then depends on parent being relative?
+    top: 40%; //also this means the element will start at 50% of the parent so need to play around with it so the centre is at 50% and not the edge
+    left: 50%;
+    transform: translate(-50%, -50%); //this is saying these 50% are in relation to the element itself and not the parent element anymore.
+    text-align: center;
+
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    // backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+}
+
+.heading-primary--main {
+    // span is inline by default so we will change it to block
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+
+    // animation-iteration-count: 3; this rules means the animation will repeat three times
+    // animation-delay: 3s; obviously this delaying animation and it starts after 3 seconds
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    // below is calling animation as above but is all in one line
+    animation: moveInRight 1s ease-out;
+
+}
+
+
+// below is link pseudo class - its a state of the button selector and visited is for when a user clicks it and and colors for after it has visited. here we want them to be the same so we call them together
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s; //this is saying use the two transforms below on the active and hover states should slowly transition into place, it takes them .2s to get there. this needs to be written on the initial state but applies to the hover and active below?
+    position: relative;
+
+}
+
+//hover and active are pseudo classes, :: after is a pseudo element
+
+.btn:hover {
+    transform: translateY(-0.3rem); /*negative value makes it move up y axis*/
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+  // first 0 is for x axis, second is y and then 3rd id blur
+}
+
+.btn:active {
+    transform: translateY(-0.1rem); //this is not 1px in relation to hover state, it is always in relation to the regular state.
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+.btn--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
+
+.btn::after {
+  /*  */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; //this will be absolute in relation to the last relative positioned item, in our case it is the header, but we dont wwant that so we need to add a position of relative to the btn:visted part.
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn--white::after {
+    background-color: $color-white;
+}
+
+// below looks confusing but this is a psuedo element only when we have the button in the hover state
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6); //scale(2)this inscreases the element and it will appear twice the size it was before. scale() without an x or y scales entire element but you can use scaleX or scaleY to target either top and bottom or side
+
+    opacity: 0; //this relates to the transition: all 0.4s above too, we are wanting this element to transition out to 0 opacity but you need to put the transition on the parent element remember
+}
+
+.btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s; //the end 0.75s relates to the delay
+    animation-fill-mode: backwards; // this automatically applies the style of the 0% before the animation starts. so the 0% that says opacity 0 on this animation will apply
+}
+
+// ANIMATIONS
+
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-10rem); //negative value means it moves TO the left
+    }
+
+    // 60% { this is just an eg of rotate
+    //   transform: rotate(180deg);
+    // }
+
+    80% {
+      transform: translateX(1rem); //specifying positive means it will go to the right
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); //this means it will look like it does now in the centre
+    }
+}
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem); //negative value means it moves TO the left
+    }
+
+    80% {
+      transform: translateX(-1rem); //specifying positive means it will go to the right
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); //this means it will look like it does now in the centre
+    }
+
+
+}
+@keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem); //positive value means it moves TO the bottom
+    }
+
+
+    100% {
+      opacity: 1;
+      transform: translate(0); //this means it will look like it does now in the centre
+    }
+}
