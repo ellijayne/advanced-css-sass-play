@@ -45,13 +45,13 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute; /*this depends on parent element being set to relative */
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
@@ -60,7 +60,7 @@ this is eg of how to call animation on hover. mine doesn't really work
   animation: moveInRight 1s ease-out;
 } */
 
-.text-box {
+.header__text-box {
     /*this depends on parent element being set to relative */
     position: absolute;
     /* think the below depends on the element being absolute, which then depends on parent being relative? */
@@ -79,7 +79,7 @@ this is eg of how to call animation on hover. mine doesn't really work
 
 }
 
-.heading-primary-main {
+.heading-primary--main {
     /* span is inline by default so we will change it to block */
     display: block;
     font-size: 6rem;
@@ -94,7 +94,7 @@ this is eg of how to call animation on hover. mine doesn't really work
     /* animation-delay: 3s; obviously this delaying animation and it starts after 3 seconds */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -131,7 +131,7 @@ this is eg of how to call animation on hover. mine doesn't really work
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -150,7 +150,7 @@ this is eg of how to call animation on hover. mine doesn't really work
     transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -162,7 +162,7 @@ this is eg of how to call animation on hover. mine doesn't really work
     opacity: 0; /*this relates to the transition: all 0.4s above too, we are wanting this element to transition out to 0 opacity but you need to put the transition on the parent element remember */
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom 0.5s ease-out 0.75s; /*the end 0.75s relates to the delay*/
     animation-fill-mode: backwards; /* this automatically applies the style of the 0% before the animation starts. so the 0% that says opacity 0 on this animation will apply */
 }
