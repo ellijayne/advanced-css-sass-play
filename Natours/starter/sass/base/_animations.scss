@@ -1,0 +1,48 @@
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-10rem); //negative value means it moves TO the left
+    }
+
+    // 60% { this is just an eg of rotate
+    //   transform: rotate(180deg);
+    // }
+
+    80% {
+      transform: translateX(1rem); //specifying positive means it will go to the right
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); //this means it will look like it does now in the centre
+    }
+}
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem); //negative value means it moves TO the left
+    }
+
+    80% {
+      transform: translateX(-1rem); //specifying positive means it will go to the right
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0); //this means it will look like it does now in the centre
+    }
+
+
+}
+@keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem); //positive value means it moves TO the bottom
+    }
+
+
+    100% {
+      opacity: 1;
+      transform: translate(0); //this means it will look like it does now in the centre
+    }
+}

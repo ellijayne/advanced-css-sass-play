@@ -1,0 +1,44 @@
+//says you could argue that this is a component but he says to him its related to typography and therefore can go in here?
+//anything related to fonts and type goes in here. 
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7; //1.7 bigger than normal set lineheight
+    color: $color-grey-dark;
+    padding: 3rem;
+}
+
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    // backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    &--main {
+        // span is inline by default so we will change it to block
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+
+
+        // animation-iteration-count: 3; this rules means the animation will repeat three times
+        // animation-delay: 3s; obviously this delaying animation and it starts after 3 seconds
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        // below is calling animation as above but is all in one line
+        animation: moveInRight 1s ease-out;
+
+    }
+}

@@ -1,0 +1,19 @@
+//all reset stuff and whole document defining things go in here. 
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+   //this changes the box model so the borders and padding are no longer added to the elements on here
+   box-sizing: inherit; //this is telling the program to inherit the box size from the body! only way to use inherit is to let it inherit from where it was set elsewhere. inherit has no meaning on its own if there is no other box size defined.
+}
+
+//cos we dont want to use px at all on font-sizes changing the below from 10px to a percentage so divide 10 by 16 cos 16 is root px size.
+//below defines what 1rem is, so could argue it belongs in typography but because it defines things for the body it belongs here.
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}

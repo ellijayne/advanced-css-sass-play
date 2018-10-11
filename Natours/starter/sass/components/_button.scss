@@ -1,0 +1,64 @@
+// below is link pseudo class - its a state of the button selector and visited is for when a user clicks it and and colors for after it has visited. here we want them to be the same so we call them together
+
+.btn {
+
+    &:link, &:visited {
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 4rem;
+      display: inline-block;
+      border-radius: 10rem;
+      transition: all .2s; //this is saying use the two transforms below on the active and hover states should slowly transition into place, it takes them .2s to get there. this needs to be written on the initial state but applies to the hover and active below?
+      position: relative;
+    }
+
+    //hover and active are pseudo classes, :: after is a pseudo element
+
+  &:hover {
+      transform: translateY(-0.3rem); /*negative value makes it move up y axis*/
+      box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+    // first 0 is for x axis, second is y and then 3rd id blur
+
+      &::after { //this is .btn:hover::after
+        transform: scaleX(1.4) scaleY(1.6); //scale(2)this inscreases the element and it will appear twice the size it was before. scale() without an x or y scales entire element but you can use scaleX or scaleY to target either top and bottom or side
+
+        opacity: 0; //this relates to the transition: all 0.4s above too, we are wanting this element to transition out to 0 opacity but you need to put the transition on the parent element remember
+      }
+  }
+
+  &:active {
+      transform: translateY(-0.1rem); //this is not 1px in relation to hover state, it is always in relation to the regular state.
+      box-shadow: 0 0.5rem 1rem rgba($color-black,0.2);
+  }
+
+  &--white {
+      background-color: $color-white;
+      color: $color-grey-dark;
+
+      &::after { //this is .btn--white::after
+          background-color: $color-white;
+      }
+  }
+
+  &::after { //this is .btn::after
+
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 10rem;
+      position: absolute; //this will be absolute in relation to the last relative positioned item, in our case it is the header, but we dont wwant that so we need to add a position of relative to the btn:visted part.
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.4s;
+  }
+
+
+  // below looks confusing but this is a psuedo element only when we have the button in the hover state
+
+  &--animated {
+      animation: moveInBottom 0.5s ease-out 0.75s; //the end 0.75s relates to the delay
+      animation-fill-mode: backwards; // this automatically applies the style of the 0% before the animation starts. so the 0% that says opacity 0 on this animation will apply
+  }
+}
