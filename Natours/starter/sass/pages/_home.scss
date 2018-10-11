@@ -1,3 +1,5 @@
 .section-about {
-  
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -20vh; //this is to move the grey color UP because of the angle of the top img, we know the right bottom edge of the hero img is clipped at 75vh and the left side takes up 95vh so to move this up you need to take 75 off 95 so 20
 }

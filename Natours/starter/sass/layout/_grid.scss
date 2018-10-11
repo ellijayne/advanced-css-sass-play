@@ -13,7 +13,7 @@
 
   [class^="col-"] {
       //OMG this is a selector you can use to select things using class or src or alt or whatever, can also specify you want ^any starting with "col-" like we did here and this will apply to all with class starting with "col-" if you use * it means any class that CONTAINS 'col-' anywehere in them. $ means any that ENDs with
-      background-color: rgb(134, 49, 123);
+      // background-color: rgb(134, 49, 123);
       float: left;
 
       &:not(:last-child) {
