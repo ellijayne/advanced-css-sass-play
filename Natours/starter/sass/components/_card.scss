@@ -1,0 +1,40 @@
+.card {
+
+    //below will help make card look like it is moving towards you, more 3D needs to be on the parent that contains the child with the transform property.
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative; //parent must have relative pos
+    height: 50rem;
+
+    &__side {
+
+      font-size: 2rem;
+      color: white;
+      height: 50rem;
+      transition: all 0.8s ease;
+      position: absolute; //this is positioning both front and back as absolute. but this takes the elements out of their natural flow and collapses the height too. so need to specify height for .card parent too
+      top: 0;
+      bottom: 0;
+      width: 100%; //necessary cos when you set position to absolute they collapse to the width of their content
+      backface-visibility: hidden;
+
+      &--front {
+        background-color: $color-white;
+      }
+
+      &--back {
+        background-color: purple;
+        //the back is technically already rotated 180deg in the begining before we hover, then when we hover it flips 180 deg on front
+        transform: rotateY(180deg);
+      }
+    }
+
+    &:hover &__side--front { //on .card:hover the .card__side is transformed.
+      transform: rotateY(180deg); //makes it flip on its side
+    }
+
+    &:hover &__side--back {
+      transform: rotateY(0deg);
+    }
+
+}
