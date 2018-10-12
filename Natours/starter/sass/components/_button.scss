@@ -38,7 +38,17 @@
       &::after { //this is .btn--white::after
           background-color: $color-white;
       }
+
   }
+
+  &--green {
+      background-color: $color-primary;
+      color: $color-white;
+
+      &::after { //this is .btn--white::after
+          background-color: $color-primary;
+      }
+    }
 
   &::after { //this is .btn::after
 
