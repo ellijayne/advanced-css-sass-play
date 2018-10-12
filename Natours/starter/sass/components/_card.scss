@@ -1,152 +1,146 @@
 .card {
+  //below will help make card look like it is moving towards you, more 3D needs to be on the parent that contains the child with the transform property.
+  //this is FUNCTIONALITY
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative; //parent must have relative pos
+  height: 52rem;
 
-    //below will help make card look like it is moving towards you, more 3D needs to be on the parent that contains the child with the transform property.
-
-    //this is FUNCTIONALITY
-    perspective: 150rem;
-    -moz-perspective: 150rem;
-    position: relative; //parent must have relative pos
+  &__side {
     height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute; //this is positioning both front and back as absolute. but this takes the elements out of their natural flow and collapses the height too. so need to specify height for .card parent too
+    top: 0;
+    bottom: 0;
+    width: 100%; //necessary cos when you set position to absolute they collapse to the width of their content
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden; //the background img below is overflowing the parent (this is the parent) and setting it to this will make sure the child below doesnt overflow this element?
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
+    &--front {
+      background-color: $color-white;
+    }
 
-    &__side {
-      height: 52rem;
-      transition: all 0.8s ease;
-      position: absolute; //this is positioning both front and back as absolute. but this takes the elements out of their natural flow and collapses the height too. so need to specify height for .card parent too
-      top: 0;
-      bottom: 0;
-      width: 100%; //necessary cos when you set position to absolute they collapse to the width of their content
-      backface-visibility: hidden;
-      border-radius: 3px;
-      overflow: hidden; //the background img below is overflowing the parent (this is the parent) and setting it to this will make sure the child below doesnt overflow this element?
-      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    &--back {
+      background-color: purple;
+      //the back is technically already rotated 180deg in the begining before we hover, then when we hover it flips 180 deg on front
+      transform: rotateY(180deg);
 
-      &--front {
-        background-color: $color-white;
+      &-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
       }
 
-      &--back {
-        background-color: purple;
-        //the back is technically already rotated 180deg in the begining before we hover, then when we hover it flips 180 deg on front
-        transform: rotateY(180deg);
-
-        &-1 {
-          background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
-        }
-
-        &-2 {
-          background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
-        }
-
-        &-3 {
-          background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
-        }
-      }
-    }
-
-    &:hover &__side--front { //on .card:hover the .card__side is transformed.
-      transform: rotateY(-180deg); //makes it flip on its side
-    }
-
-    &:hover &__side--back {
-      transform: rotateY(0deg);
-    }
-
-    //this is FRONT SIDE STYLING
-    &__picture {
-      background-size: cover;
-      height: 23rem;
-      background-blend-mode: screen; //this blends the linear G background below and the background img file.
-      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      border-top-right-radius: 3px;
-      border-top-left-radius: 3px;
-
-
-        &--1 {
-          background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
-        }
-
-        &--2 {
-          background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
-        }
-
-        &--3 {
-          background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
-        }
-    }
-
-    &__heading {
-        font-size: 2.8rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        text-align: right;
-        color: $color-white;
-        position: absolute;
-        top: 12rem;
-        right: 2rem;
-        width: 75%;
-    }
-
-    &__heading-span {
-        padding: 1rem 1.5rem; //when the line breaks on the end of the first line will be no padding cos its one line. so the below code 'breaks' them and treats them as two lines now
-        -webkit-box-decoration-break: clone;
-        box-decoration-break: clone;
-
-        &--1 {
-          background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.85), rgba( $color-secondary-dark, 0.85));
-        }
-
-        &--2 {
-          background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.85), rgba( $color-primary-dark, 0.85));
-        }
-
-        &--3 {
-          background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.85), rgba( $color-tertiary-dark, 0.85));
-        }
-    }
-
-    &__details {
-        ul {
-          list-style: none;
-          width: 80%;
-          margin: 0 auto;
-
-          li {
-            text-align: center;
-            font-size: 1.5rem;
-            padding: 1rem;
-
-            &:not(:last-child) {
-              border-bottom: 1px solid $color-grey-light-2;
-            }
-          }
-        }
+      &-2 {
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
       }
 
-      //FRONT SIDE STYLING
-      &__cta {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); //this is moving the content of the card into the middle?
-        width: 90%;
+      &-3 {
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
       }
+    }
+  }
 
-      &__price-box {
+  &:hover &__side--front {
+    //on .card:hover the .card__side is transformed.
+    transform: rotateY(-180deg); //makes it flip on its side
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+  //this is FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen; //this blends the linear G background below and the background img file.
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-right-radius: 3px; //needed to add these in after using clip-path cos it breaks the overflow:hidden on line 21
+    border-top-left-radius: 3px;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url("../img/nat-5.jpg");
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url("../img/nat-6.jpg");
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url("../img/nat-7.jpg");
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem; //when the line breaks on the end of the first line will be no padding cos its one line. so the below code 'breaks' them and treats them as two lines now
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.85), rgba($color-secondary-dark, 0.85));
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.85), rgba($color-primary-dark, 0.85));
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.85), rgba($color-tertiary-dark, 0.85));
+    }
+  }
+
+  &__details {
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
         text-align: center;
-        margin-bottom: 8rem;
-        color: $color-white;
+        font-size: 1.5rem;
+        padding: 1rem;
 
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
       }
+    }
+  }
+  //FRONT SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); //this is moving the content of the card into the middle?
+    width: 90%;
+  }
 
-      &__price-only {
-        font-size: 1.4rem;
-        text-transform: uppercase;
-      }
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $color-white;
+  }
 
-      &__price-value {
-        font-size: 6rem;
-        font-weight: 100;
-      }
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
 }

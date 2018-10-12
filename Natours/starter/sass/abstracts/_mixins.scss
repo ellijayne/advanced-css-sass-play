@@ -1,7 +1,7 @@
 @mixin clearfix {
-    &::after {
-      content: ""; //psuedo elements always need a content, here we leave it empty cos we dont want to display anything on the page.
-      display: table; //this is standard in clearfix
-      clear: both; //both means it will work for float left or float right. 
-    }
+  &::after {
+    content: ""; //psuedo elements always need a content, here we leave it empty cos we dont want to display anything on the page.
+    display: table; //this is standard in clearfix
+    clear: both; //both means it will work for float left or float right. 
+  }
 }

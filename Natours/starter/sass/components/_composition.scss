@@ -4,40 +4,40 @@
   position: relative; //any img with this position will vase itself off a parent with position relative.
 
   &__photo {
-      width: 55%;
-      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
-      border-radius: 2px;
-      position: absolute; //any img with this position will vase itself off a parent with position relative.
-      z-index: 10;
-      transition: all 0.2s;
-      outline-offset: 2rem; //see note below on hover.
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    position: absolute; //any img with this position will vase itself off a parent with position relative.
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 2rem; //see note below on hover.
 
-      &--pic1 {
-        left: 0;
-        top: -2rem; //this will move it upwards
-      }
+    &--pic1 {
+      left: 0;
+      top: -2rem; //this will move it upwards
+    }
 
-      &--pic2 {
-        right: 0; //moving 0 px from right side of container.
-        top: 2rem;
-      }
+    &--pic2 {
+      right: 0; //moving 0 px from right side of container.
+      top: 2rem;
+    }
 
-      &--pic3 {
-        left: 20%; //20% of VW from left side of container.
-        top: 10rem;
-      }
+    &--pic3 {
+      left: 20%; //20% of VW from left side of container.
+      top: 10rem;
+    }
 
-      &:hover {
-        outline: 1.5rem solid $color-primary; //similar to border but lets you set outline-offset on poto above.
-        transform: scale(1.05) translateY(-0.5rem); //the minus here will make it move up a little
-        box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
-        z-index: 20;
-      }
+    &:hover {
+      outline: 1.5rem solid $color-primary; //similar to border but lets you set outline-offset on poto above.
+      transform: scale(1.05) translateY(-0.5rem); //the minus here will make it move up a little
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+    }
   }
+  //below is like .composition:hover composition__photo:not(:hover)
+  //saying select the above elements that are NOT hovered.
 
-//below is like .composition:hover composition__photo:not(:hover)
-//saying select the above elements that are NOT hovered.
   &:hover &__photo:not(:hover) {
-      transform: scale(0.95);
+    transform: scale(0.95);
   }
 }
