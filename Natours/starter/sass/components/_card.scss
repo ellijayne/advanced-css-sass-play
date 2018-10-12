@@ -6,11 +6,11 @@
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative; //parent must have relative pos
-    height: 50rem;
+    height: 52rem;
 
 
     &__side {
-      height: 50rem;
+      height: 52rem;
       transition: all 0.8s ease;
       position: absolute; //this is positioning both front and back as absolute. but this takes the elements out of their natural flow and collapses the height too. so need to specify height for .card parent too
       top: 0;
@@ -105,4 +105,29 @@
         }
       }
 
+      //FRONT SIDE STYLING
+      &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); //this is moving the content of the card into the middle?
+        width: 90%;
+      }
+
+      &__price-box {
+        text-align: center;
+        margin-bottom: 8rem;
+        color: $color-white;
+
+      }
+
+      &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+      }
+
+      &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+      }
 }
