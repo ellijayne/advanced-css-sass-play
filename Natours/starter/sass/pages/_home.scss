@@ -16,10 +16,10 @@
     margin-top: -10rem; //this is moving green up to meet the light grey/white
 
     //could use clip-path here again but cos we are gonna do it on top and bottom we will just use skew - this will impact the little info boxes though so also gotta skew them in opposite directtion
-    transform: skewY(-7deg);
+    transform: skewY(-6deg);
 
     & > * { //this says direct children - all - in this instance it will select the "row" class
-      transform: skewY(7deg);
+      transform: skewY(6deg);
     }
 }
 

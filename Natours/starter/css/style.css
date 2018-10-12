@@ -177,6 +177,10 @@ body {
       transform: rotateY(180deg); }
       .card__side--back-1 {
         background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
@@ -343,9 +347,9 @@ body {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.75), rgba(40, 180, 133, 0.75)), url(../img/nat-4.jpg);
   background-size: cover;
   margin-top: -10rem;
-  transform: skewY(-7deg); }
+  transform: skewY(-6deg); }
   .section-features > * {
-    transform: skewY(7deg); }
+    transform: skewY(6deg); }
 
 .section-tours {
   background-color: #f7f7f7;
