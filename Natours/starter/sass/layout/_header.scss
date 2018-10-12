@@ -10,6 +10,7 @@
     background-size: cover; //whatever the width of the viewport it will always try to fit the element inside the box
     background-position: top; //this makes sure whatever the viewport size, the top of the image always stays at the top of the container.
     position: relative; //in logo-box below we set it to absolute and it's position depends on this parent element being positioned relative
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__logo-box {
