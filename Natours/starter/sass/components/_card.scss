@@ -6,6 +6,7 @@
     position: relative; //parent must have relative pos
     height: 50rem;
 
+
     &__side {
 
       font-size: 2rem;
@@ -17,6 +18,8 @@
       bottom: 0;
       width: 100%; //necessary cos when you set position to absolute they collapse to the width of their content
       backface-visibility: hidden;
+      border-radius: 3px;
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
       &--front {
         background-color: $color-white;
