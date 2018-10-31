@@ -1,0 +1,21 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6remrgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  font-size: $default-font-size;
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    background-color: purple;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%); //first num is radius of circ the second two mean positon vert and hori, this is saying 50% of vert and 50% of hori of circle. this will also only work if it is floated and has a width and height defined.
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+  }
+}
